@@ -1,6 +1,6 @@
-# Full Stack Trivia API Backend
+# Full Stack API Final Project
 
-## Getting Started
+## Full Stack Trivia
 
 ### Installing Dependencies
 

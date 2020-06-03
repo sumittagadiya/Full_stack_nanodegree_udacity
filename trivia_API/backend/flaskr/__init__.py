@@ -3,7 +3,8 @@ from flask import Flask, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import random
-
+import json
+import sys
 from models import setup_db, Question, Category
 
 QUESTIONS_PER_PAGE = 10
@@ -90,10 +91,15 @@ def create_app(test_config=None):
     id given as a url parameter"""
     try:
       question = Question.query.get(id)
-      question.delete()
+      print("questions",question)
+      
 
-      selection = Question.query.order_by(Question.id).all()
-      current_questions = paginated_questions(request, selection,QUESTIONS_PER_PAGE)
+      if question is None:
+        abort(422)
+      else:
+        question.delete()
+        selection = Question.query.order_by(Question.id).all()
+        current_questions = paginated_questions(request, selection,QUESTIONS_PER_PAGE)
 
       return jsonify({
         'success': True,
@@ -112,39 +118,47 @@ def create_app(test_config=None):
     the json data is empty."""
     # Get json data from request
     data = request.get_json()
+    #data = json.loads(request.data.decode('utf-8'))
+    print('Printing Data...............')
+    print(data)
     # get individual data from json data
+  
     new_question = data.get('question', '')
     new_answer = data.get('answer', '')
     new_difficulty = data.get('difficulty', '')
     new_category = data.get('category', '')
-    
+     
     # validate to ensure no data is empty
     if ((new_question == '') or (new_answer == '') or (new_difficulty == '') or (new_category == '')):
       abort(422)
-
+    
+    
+    print("question ====> ",new_question)
+    print("answer ====> ",new_answer)
+    print("category ====> ",new_category)
+    print("difficulty ====>",new_difficulty)
+    
     try:
       # Create a new question instance
-      question = Question(question=new_question,answer=new_answer,category=new_category,difficulty=new_difficulty)
-
+      question_record = Question(question=new_question,answer=new_answer,category=new_category,difficulty=new_difficulty)
       # save question
-      question.insert()
-
-      questions = Question.query.order_by(Question.id).all()
-      current_questions = paginated_questions(request, questions,QUESTIONS_PER_PAGE)
-
+      
+      question_record.insert()
+       
       # return success message
       return jsonify({
+        'status_code':200,
         'success': True,
-        'message': 'Question successfully created!',
-        'created':question.id,
-        'question': current_questions,
-        'total_questions': len(Question.query.all())
+        'message': 'Question successfully created!'
       })
       
     except Exception:
       # return 422 status code if error
+      
+      print("Error is here")
+      print("exception",sys.exc_info())
       abort(422)
-  
+      
   @app.route('/questions/search', methods=['POST'])
   def search_questions():
     """This endpoint returns questions from a search term. """
@@ -200,44 +214,49 @@ def create_app(test_config=None):
       'current_category': category.type
     })
 
-  @app.route('/quizzes', methods=['POST'])
-  def get_quiz_question():
-    """This returns a random question to play quiz."""
-    # process the request data and get the values
-    data = request.get_json()
-    previous_questions = data.get('previous_questions')
-    quiz_category = data.get('quiz_category')
-    
-    # return 404 if quiz_category or previous_questions is empty
-    if ((quiz_category is None) or (previous_questions is None)):
-      abort(400)
-
-    # if default value of category is given return all questions else return questions filtered by category
-    if (quiz_category['id'] == 0):
-      questions = Question.query.all()
-    else:
-      questions = Question.query.filter_by(category=quiz_category['id']).all()
-
-    # defines a random question generator method
-    def random_question():
-      return questions[random.randint(0, len(questions)-1)]
-
-    # get random question for the next question
-    next_question = random_question()
-
-    # defines boolean used to check that the question is not a previous question
-    found = True
-    
-    while found:
-      if next_question.id in previous_questions:
-        next_question = random_question()
+  @app.route("/quizzes",methods=["POST"])
+  def get_quiz_questions():
+    try:
+      body = request.get_json()
+      previous_question = body.get('previous_questions')
+      quiz_category = int(body.get('quiz_category')['id'])
+      category = Category.query.get(quiz_category)
+      # if category is not None 
+      if not category == None:
+        # check if there are some previous questions so that we will not show those question
+        # again
+        if  "previous_questions"  in body and len(previous_question) > 0 :
+          # filtered out category and filterd out previous question
+          questions = Question.query.filter(Question.id.notin_(
+            previous_question), Question.category == category.id).all()
+          
+        # if there are no previous question then check for category and if category is all
+        # then show all question
+        else:
+          print("in first else",category)
+          questions = Question.query.filter_by(category = category.id).all()
       else:
-        found = False
+        # if category is none then only check for previous question filter
+        if "previous_questions" in body and len(previous_question) > 0:
+          questions = Question.query.filter(Question.id.notin_(previous_question)).all()
+        # if previous question is None and category is also None then show all
+        else:
+          questions = Question.query.all()
+      max = len(questions) - 1
+      if max > 0:
+          questions = questions[random.randint(0, max)].format()
 
-    return jsonify({
-      'success': True,
-      'question': next_question.format(),
-    }), 200
+      else:
+          questions = False
+      print(questions)
+      return jsonify({
+          'status': 200,
+          "success": True,
+          "question": questions
+      })          
+    except:
+      print(sys.exc_info())
+      abort(500)
 
   # Error handler for Bad request error (400)
 

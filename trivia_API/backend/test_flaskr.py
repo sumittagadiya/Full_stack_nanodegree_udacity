@@ -18,9 +18,14 @@ class TriviaTestCase(unittest.TestCase):
         self.app = create_app()
         self.client = self.app.test_client
         self.database_name = "trivia_test"
-        self.database_path = "postgres://{}:{}@{}/{}".format('postgres', '12345', 'localhost:5432', self.database_name)
+        self.database_path = "postgresql://{}:{}@{}/{}".format('postgres', '12345', 'localhost:5432', self.database_name)
+        self.question = {
+            'question': 'Who is best footballer in the world?',
+            'answer': 'Leonel Messi',
+            'difficulty': 1,
+            'category': '6',
+        }
         setup_db(self.app, self.database_path)
-
         # binds the app to the current context
         with self.app.app_context():
             self.db = SQLAlchemy()
@@ -71,7 +76,7 @@ class TriviaTestCase(unittest.TestCase):
         self.assertTrue(data['questions'])
         self.assertEqual(len(data['questions']), 10)
 
-    def test_404_get_paginated_questions_beyond_valid_page(self):
+    def test_404_get_requesting_questions_beyond_valid_page(self):
         """Test for out of bound page
         This test ensures a page that is out of bound
         returns a 404 error
@@ -86,41 +91,24 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(data['success'], False)
         self.assertEqual(data['message'], 'Resource not found')
 
-    #def test_successful_question_delete(self):
+    def test_successful_question_delete(self):
     #    """Test for deleting a question.
     #    create_mock_question function is used to prevent having
     #    to drop the database during the running of the test suite.
     #    """
 
-        # create mock question and get id
-
-        # delete mock question and process response
-    #    response = self.client().delete('/questions/6')
-    #    data = json.loads(response.data)
-
-        # ensure question does not exist
-    #    self.assertEqual(response.status_code, 200)
-    #    self.assertEqual(data['success'], True)
-    #   self.assertEqual(data['message'], "Question successfully deleted")
-
-    def test_delete_same_question_twice(self):
-        """unsuccessful deletion of question
-        This tests the error message returned when
-        you try to delete the same question twice.
-        """
-
-
-        # this tests if resource has already been deleted
-        self.client().delete('/questions/6')
-        response = self.client().delete('/questions/6')
+        response = self.client().delete('/questions/5')
+        question = Question.query.filter(Question.id == 5).one_or_none()
         data = json.loads(response.data)
 
-        # make assertions on the response data
-        self.assertEqual(response.status_code, 422)
-        self.assertEqual(data['success'], False)
-        self.assertEqual(data['message'], 'Unprocessable entity')
+        # ensure question does not exist
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(data['success'], True)
+        self.assertEqual(data['message'], "Question successfully deleted")
+        self.assertEqual(question, None)
+        
 
-    def test_delete_question_id_not_found(self):
+    def test_delete_question_id_not_exist(self):
         """Tests deletion of question id that doesn't exist
         This tests the error message returned a valid id that
         doesn't exist is used.
@@ -148,16 +136,19 @@ class TriviaTestCase(unittest.TestCase):
         """Test for creating question."""
 
         # mock data to use as payload for post request
-        post_data = {
-            'question': 'Who is best footballer in the world?',
-            'answer': 'Leonel Messi',
-            'difficulty': 1,
-            'category': '6',
-            }
-
+        #post_data = {
+        #    'question': 'Who is best footballer in the world?',
+        #    'answer': 'Leonel Messi',
+        #    'difficulty': 1,
+        #    'category': '6',
+        #    }
+        
         # make request and process response
-        response = self.client().post('/questions', json=post_data)
+        response = self.client().post('/questions', json=self.question)
+        
         data = json.loads(response.data)
+        
+        
   
         # assertions to ensure successful request
         self.assertEqual(response.status_code, 200)
@@ -172,7 +163,7 @@ class TriviaTestCase(unittest.TestCase):
         }
         res = self.client().post('/questions', json=post_data)
         data = json.loads(res.data)
-
+        
         self.assertEqual(res.status_code, 422)
         self.assertEqual(data["success"], False)
         self.assertEqual(data["message"], 'Unprocessable entity')
@@ -187,7 +178,6 @@ class TriviaTestCase(unittest.TestCase):
         # make request and process response
         response = self.client().post('/questions/search', json=request_data)
         data = json.loads(response.data)
-
         # Assertions
         self.assertEqual(response.status_code, 200)
         self.assertEqual(data['success'], True)
@@ -234,45 +224,32 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(data['success'], False)
         self.assertEqual(data['message'], 'Unprocessable entity')
 
-    def test_play_quiz_questions(self):
-        """Tests playing quiz questions"""
+    def test_quiz_All_category_no_previous_question(self):
+        res =self.client().post("quizzes",json={"previous_questions": [],
+        "quiz_category":  {"type": "click", "id": 0}
+        })
+        data  = json.loads(res.data)
+        self.assertEqual(res.status,'200 OK')
+        self.assertEqual(res.status_code,200)
+        self.assertTrue(data["question"])
 
-        # mock request data
-        request_data = {
-            'previous_questions': [5, 9],
-            'quiz_category': {
-                'type': 'History',
-                'id': 4
-            }
-        }
+    def test_quiz_by_category_no_previous_question(self):
+        res =self.client().post("quizzes",json={"previous_questions": [],
+        "quiz_category":  {"type": "click", "id": 6}
+        })
+        data  = json.loads(res.data)
+        self.assertEqual(res.status,'200 OK')
+        self.assertEqual(res.status_code,200)
+        self.assertTrue(data["question"])
 
-        # make request and process response
-        response = self.client().post('/quizzes', json=request_data)
-        data = json.loads(response.data)
-
-        # Assertions
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(data['success'], True)
-        self.assertTrue(data['question'])
-
-        # Ensures previous questions are not returned
-        self.assertNotEqual(data['question']['id'], 5)
-        self.assertNotEqual(data['question']['id'], 9)
-
-        # Ensures returned question is in the correct category
-        self.assertEqual(data['question']['category'], 4)
-
-    def test_no_data_to_play_quiz(self):
-        """Test for the case where no data is sent"""
-
-        # process response from request without sending data
-        response = self.client().post('/quizzes', json={})
-        data = json.loads(response.data)
-
-        # Assertions
-        self.assertEqual(response.status_code, 400)
-        self.assertEqual(data['success'], False)
-        self.assertEqual(data['message'], 'Bad request error')
+    def test_quiz_by_category_previous_question(self):
+        res =self.client().post("quizzes",json={"previous_questions": [14],
+        "quiz_category":  {"type": "click", "id": 6}
+        })
+        data  = json.loads(res.data)
+        self.assertEqual(res.status,'200 OK')
+        self.assertEqual(res.status_code,200)
+        self.assertTrue(data["question"])
 
    
     
