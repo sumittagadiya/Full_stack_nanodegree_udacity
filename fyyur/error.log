@@ -1,0 +1,604 @@
+2020-05-23 23:32:30,954 INFO: errors [in /media/sumit/New Volume1/FSND/Code/fyyur_project_1/FSND/projects/01_fyyur/starter_code/app.py:510]
+2020-05-23 23:33:46,471 ERROR: Exception on /venues/create [GET] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/Code/fyyur_project_1/FSND/projects/01_fyyur/starter_code/app.py", line 220, in create_venue_form
+    form = VenueForm()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 157, in __init__
+    super(Form, self).__init__(*args, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 87, in __init__
+    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 274, in __init__
+    self.process(formdata, obj, data=data, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 131, in process
+    field.process(formdata)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/csrf/core.py", line 43, in process
+    self.current_token = self.csrf_impl.generate_csrf_token(self)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 141, in generate_csrf_token
+    token_key=self.meta.csrf_field_name
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 35, in generate_csrf
+    message='A secret key is required to use CSRF.'
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 128, in _get_config
+    raise RuntimeError(message)
+RuntimeError: A secret key is required to use CSRF.
+2020-05-23 23:33:56,377 ERROR: Exception on /artists/create [GET] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/Code/fyyur_project_1/FSND/projects/01_fyyur/starter_code/app.py", line 413, in create_artist_form
+    form = ArtistForm()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 157, in __init__
+    super(Form, self).__init__(*args, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 87, in __init__
+    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 274, in __init__
+    self.process(formdata, obj, data=data, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 131, in process
+    field.process(formdata)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/csrf/core.py", line 43, in process
+    self.current_token = self.csrf_impl.generate_csrf_token(self)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 141, in generate_csrf_token
+    token_key=self.meta.csrf_field_name
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 35, in generate_csrf
+    message='A secret key is required to use CSRF.'
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 128, in _get_config
+    raise RuntimeError(message)
+RuntimeError: A secret key is required to use CSRF.
+2020-05-23 23:34:01,850 ERROR: Exception on /shows/create [GET] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/Code/fyyur_project_1/FSND/projects/01_fyyur/starter_code/app.py", line 478, in create_shows
+    form = ShowForm()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 157, in __init__
+    super(Form, self).__init__(*args, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 87, in __init__
+    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 274, in __init__
+    self.process(formdata, obj, data=data, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 131, in process
+    field.process(formdata)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/csrf/core.py", line 43, in process
+    self.current_token = self.csrf_impl.generate_csrf_token(self)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 141, in generate_csrf_token
+    token_key=self.meta.csrf_field_name
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 35, in generate_csrf
+    message='A secret key is required to use CSRF.'
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 128, in _get_config
+    raise RuntimeError(message)
+RuntimeError: A secret key is required to use CSRF.
+2020-05-23 23:36:06,015 ERROR: Exception on /venues/create [GET] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/Code/fyyur_project_1/FSND/projects/01_fyyur/starter_code/app.py", line 220, in create_venue_form
+    form = VenueForm()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 157, in __init__
+    super(Form, self).__init__(*args, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 87, in __init__
+    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 274, in __init__
+    self.process(formdata, obj, data=data, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 131, in process
+    field.process(formdata)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/csrf/core.py", line 43, in process
+    self.current_token = self.csrf_impl.generate_csrf_token(self)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 141, in generate_csrf_token
+    token_key=self.meta.csrf_field_name
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 35, in generate_csrf
+    message='A secret key is required to use CSRF.'
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 128, in _get_config
+    raise RuntimeError(message)
+RuntimeError: A secret key is required to use CSRF.
+2020-05-23 23:36:06,646 ERROR: Exception on /venues/create [GET] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/Code/fyyur_project_1/FSND/projects/01_fyyur/starter_code/app.py", line 220, in create_venue_form
+    form = VenueForm()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 157, in __init__
+    super(Form, self).__init__(*args, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 87, in __init__
+    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 274, in __init__
+    self.process(formdata, obj, data=data, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 131, in process
+    field.process(formdata)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/csrf/core.py", line 43, in process
+    self.current_token = self.csrf_impl.generate_csrf_token(self)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 141, in generate_csrf_token
+    token_key=self.meta.csrf_field_name
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 35, in generate_csrf
+    message='A secret key is required to use CSRF.'
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 128, in _get_config
+    raise RuntimeError(message)
+RuntimeError: A secret key is required to use CSRF.
+2020-05-25 12:23:01,737 INFO: errors [in /media/sumit/New Volume1/FSND/01_fyyur/starter_code/app.py:422]
+2020-05-25 12:23:23,102 ERROR: Exception on /venues/create [GET] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/01_fyyur/starter_code/app.py", line 122, in create_venue_form
+    form = VenueForm()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 157, in __init__
+    super(Form, self).__init__(*args, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 87, in __init__
+    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 274, in __init__
+    self.process(formdata, obj, data=data, **kwargs)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 131, in process
+    field.process(formdata)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/wtforms/csrf/core.py", line 43, in process
+    self.current_token = self.csrf_impl.generate_csrf_token(self)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 141, in generate_csrf_token
+    token_key=self.meta.csrf_field_name
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 35, in generate_csrf
+    message='A secret key is required to use CSRF.'
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask_wtf/csrf.py", line 128, in _get_config
+    raise RuntimeError(message)
+RuntimeError: A secret key is required to use CSRF.
+2020-05-25 12:23:32,182 ERROR: Exception on /venues [GET] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: relation "Venue" does not exist
+LINE 2: FROM "Venue" GROUP BY "Venue".id, "Venue".state, "Venue".cit...
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/01_fyyur/starter_code/app.py", line 59, in venues
+    venues_query = Venue.query.group_by(Venue.id, Venue.state, Venue.city).all()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2773, in all
+    return list(self)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) relation "Venue" does not exist
+LINE 2: FROM "Venue" GROUP BY "Venue".id, "Venue".state, "Venue".cit...
+             ^
+ [SQL: 'SELECT "Venue".id AS "Venue_id", "Venue".name AS "Venue_name", "Venue".genres AS "Venue_genres", "Venue".address AS "Venue_address", "Venue".city AS "Venue_city", "Venue".state AS "Venue_state", "Venue".phone AS "Venue_phone", "Venue".website AS "Venue_website", "Venue".facebook_link AS "Venue_facebook_link", "Venue".seeking_talent AS "Venue_seeking_talent", "Venue".seeking_description AS "Venue_seeking_description", "Venue".image_link AS "Venue_image_link" \nFROM "Venue" GROUP BY "Venue".id, "Venue".state, "Venue".city'] (Background on this error at: http://sqlalche.me/e/f405)
+2020-05-25 12:23:38,684 ERROR: Exception on /artists [GET] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: relation "Artist" does not exist
+LINE 2: FROM "Artist"
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/01_fyyur/starter_code/app.py", line 180, in artists
+    artist_query = Artist.query.all()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2773, in all
+    return list(self)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) relation "Artist" does not exist
+LINE 2: FROM "Artist"
+             ^
+ [SQL: 'SELECT "Artist".id AS "Artist_id", "Artist".name AS "Artist_name", "Artist".genres AS "Artist_genres", "Artist".city AS "Artist_city", "Artist".state AS "Artist_state", "Artist".phone AS "Artist_phone", "Artist".website AS "Artist_website", "Artist".facebook_link AS "Artist_facebook_link", "Artist".seeking_venue AS "Artist_seeking_venue", "Artist".seeking_description AS "Artist_seeking_description", "Artist".image_link AS "Artist_image_link" \nFROM "Artist"'] (Background on this error at: http://sqlalche.me/e/f405)
+2020-05-25 12:23:41,684 ERROR: Exception on /venues [GET] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: relation "Venue" does not exist
+LINE 2: FROM "Venue" GROUP BY "Venue".id, "Venue".state, "Venue".cit...
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/01_fyyur/starter_code/app.py", line 59, in venues
+    venues_query = Venue.query.group_by(Venue.id, Venue.state, Venue.city).all()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2773, in all
+    return list(self)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) relation "Venue" does not exist
+LINE 2: FROM "Venue" GROUP BY "Venue".id, "Venue".state, "Venue".cit...
+             ^
+ [SQL: 'SELECT "Venue".id AS "Venue_id", "Venue".name AS "Venue_name", "Venue".genres AS "Venue_genres", "Venue".address AS "Venue_address", "Venue".city AS "Venue_city", "Venue".state AS "Venue_state", "Venue".phone AS "Venue_phone", "Venue".website AS "Venue_website", "Venue".facebook_link AS "Venue_facebook_link", "Venue".seeking_talent AS "Venue_seeking_talent", "Venue".seeking_description AS "Venue_seeking_description", "Venue".image_link AS "Venue_image_link" \nFROM "Venue" GROUP BY "Venue".id, "Venue".state, "Venue".city'] (Background on this error at: http://sqlalche.me/e/f405)
+2020-05-25 12:23:44,086 ERROR: Exception on /shows [GET] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: relation "Show" does not exist
+LINE 2: FROM "Show" LEFT OUTER JOIN "Venue" AS "Venue_1" ON "Venue_1...
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/01_fyyur/starter_code/app.py", line 374, in shows
+    shows_query = Show.query.options(db.joinedload(Show.Venue), db.joinedload(Show.Artist)).all()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2773, in all
+    return list(self)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) relation "Show" does not exist
+LINE 2: FROM "Show" LEFT OUTER JOIN "Venue" AS "Venue_1" ON "Venue_1...
+             ^
+ [SQL: 'SELECT "Show".id AS "Show_id", "Show".venue_id AS "Show_venue_id", "Show".artist_id AS "Show_artist_id", "Show".start_time AS "Show_start_time", "Venue_1".id AS "Venue_1_id", "Venue_1".name AS "Venue_1_name", "Venue_1".genres AS "Venue_1_genres", "Venue_1".address AS "Venue_1_address", "Venue_1".city AS "Venue_1_city", "Venue_1".state AS "Venue_1_state", "Venue_1".phone AS "Venue_1_phone", "Venue_1".website AS "Venue_1_website", "Venue_1".facebook_link AS "Venue_1_facebook_link", "Venue_1".seeking_talent AS "Venue_1_seeking_talent", "Venue_1".seeking_description AS "Venue_1_seeking_description", "Venue_1".image_link AS "Venue_1_image_link", "Artist_1".id AS "Artist_1_id", "Artist_1".name AS "Artist_1_name", "Artist_1".genres AS "Artist_1_genres", "Artist_1".city AS "Artist_1_city", "Artist_1".state AS "Artist_1_state", "Artist_1".phone AS "Artist_1_phone", "Artist_1".website AS "Artist_1_website", "Artist_1".facebook_link AS "Artist_1_facebook_link", "Artist_1".seeking_venue AS "Artist_1_seeking_venue", "Artist_1".seeking_description AS "Artist_1_seeking_description", "Artist_1".image_link AS "Artist_1_image_link" \nFROM "Show" LEFT OUTER JOIN "Venue" AS "Venue_1" ON "Venue_1".id = "Show".venue_id LEFT OUTER JOIN "Artist" AS "Artist_1" ON "Artist_1".id = "Show".artist_id'] (Background on this error at: http://sqlalche.me/e/f405)
+2020-05-25 12:23:46,208 ERROR: Exception on /artists [GET] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: relation "Artist" does not exist
+LINE 2: FROM "Artist"
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/01_fyyur/starter_code/app.py", line 180, in artists
+    artist_query = Artist.query.all()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2773, in all
+    return list(self)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) relation "Artist" does not exist
+LINE 2: FROM "Artist"
+             ^
+ [SQL: 'SELECT "Artist".id AS "Artist_id", "Artist".name AS "Artist_name", "Artist".genres AS "Artist_genres", "Artist".city AS "Artist_city", "Artist".state AS "Artist_state", "Artist".phone AS "Artist_phone", "Artist".website AS "Artist_website", "Artist".facebook_link AS "Artist_facebook_link", "Artist".seeking_venue AS "Artist_seeking_venue", "Artist".seeking_description AS "Artist_seeking_description", "Artist".image_link AS "Artist_image_link" \nFROM "Artist"'] (Background on this error at: http://sqlalche.me/e/f405)
+2020-05-25 12:23:50,114 ERROR: Exception on /artists/search [POST] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: relation "Artist" does not exist
+LINE 2: FROM "Artist" 
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/01_fyyur/starter_code/app.py", line 190, in search_artists
+    artist_list = list(map(Artist.short, artist_query))
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) relation "Artist" does not exist
+LINE 2: FROM "Artist" 
+             ^
+ [SQL: 'SELECT "Artist".id AS "Artist_id", "Artist".name AS "Artist_name", "Artist".genres AS "Artist_genres", "Artist".city AS "Artist_city", "Artist".state AS "Artist_state", "Artist".phone AS "Artist_phone", "Artist".website AS "Artist_website", "Artist".facebook_link AS "Artist_facebook_link", "Artist".seeking_venue AS "Artist_seeking_venue", "Artist".seeking_description AS "Artist_seeking_description", "Artist".image_link AS "Artist_image_link" \nFROM "Artist" \nWHERE "Artist".name ILIKE %(name_1)s'] [parameters: {'name_1': '%ww%'}] (Background on this error at: http://sqlalche.me/e/f405)
+2020-05-25 12:45:33,241 ERROR: Exception on /shows [GET] [in /home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: relation "Show" does not exist
+LINE 2: FROM "Show" LEFT OUTER JOIN "Venue" AS "Venue_1" ON "Venue_1...
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/media/sumit/New Volume1/FSND/01_fyyur/starter_code/app.py", line 374, in shows
+    shows_query = Show.query.options(db.joinedload(Show.Venue), db.joinedload(Show.Artist)).all()
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2773, in all
+    return list(self)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/sumit/anaconda3/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) relation "Show" does not exist
+LINE 2: FROM "Show" LEFT OUTER JOIN "Venue" AS "Venue_1" ON "Venue_1...
+             ^
+ [SQL: 'SELECT "Show".id AS "Show_id", "Show".venue_id AS "Show_venue_id", "Show".artist_id AS "Show_artist_id", "Show".start_time AS "Show_start_time", "Venue_1".id AS "Venue_1_id", "Venue_1".name AS "Venue_1_name", "Venue_1".genres AS "Venue_1_genres", "Venue_1".address AS "Venue_1_address", "Venue_1".city AS "Venue_1_city", "Venue_1".state AS "Venue_1_state", "Venue_1".phone AS "Venue_1_phone", "Venue_1".website AS "Venue_1_website", "Venue_1".facebook_link AS "Venue_1_facebook_link", "Venue_1".seeking_talent AS "Venue_1_seeking_talent", "Venue_1".seeking_description AS "Venue_1_seeking_description", "Venue_1".image_link AS "Venue_1_image_link", "Artist_1".id AS "Artist_1_id", "Artist_1".name AS "Artist_1_name", "Artist_1".genres AS "Artist_1_genres", "Artist_1".city AS "Artist_1_city", "Artist_1".state AS "Artist_1_state", "Artist_1".phone AS "Artist_1_phone", "Artist_1".website AS "Artist_1_website", "Artist_1".facebook_link AS "Artist_1_facebook_link", "Artist_1".seeking_venue AS "Artist_1_seeking_venue", "Artist_1".seeking_description AS "Artist_1_seeking_description", "Artist_1".image_link AS "Artist_1_image_link" \nFROM "Show" LEFT OUTER JOIN "Venue" AS "Venue_1" ON "Venue_1".id = "Show".venue_id LEFT OUTER JOIN "Artist" AS "Artist_1" ON "Artist_1".id = "Show".artist_id'] (Background on this error at: http://sqlalche.me/e/f405)
+2020-05-25 12:46:34,816 INFO: errors [in /media/sumit/New Volume1/FSND/01_fyyur/starter_code/app.py:422]
+2020-05-25 12:46:36,034 INFO: errors [in /media/sumit/New Volume1/FSND/01_fyyur/starter_code/app.py:422]
